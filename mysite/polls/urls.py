@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import include, path
 
 from . import views
 
@@ -11,4 +11,8 @@ urlpatterns = [
     path("<int:question_id>/results/", views.results, name="results"),
     # ex: /polls/5/vote/
     path("<int:question_id>/vote/", views.vote, name="vote"),
+    # the 'name' value as called by the {% url %} template tag
+    #path("<int:question_id>/", views.detail, name="detail"),
+    # added the word 'specifics'
+    path("specifics/<int:question_id>/", views.detail, name="detail"),
 ]
